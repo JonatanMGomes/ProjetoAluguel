@@ -11,7 +11,7 @@ namespace ProjetoAluguel
         public void SetNome(string nome){
             Nome = nome;
         }
-        public string GetNomeCPF(){
+        public string GetCPF(){
             return CPF;
         }
         public void SetCPF(string cpf){

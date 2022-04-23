@@ -14,6 +14,7 @@ namespace ProjetoAluguel
             TamanhoMetros = tamanhoMetros;
             QuantidadeBanheiros = quantidadeBanheiros;
             QuantidadeQuartos = quantidadeQuartos;
+            Moradores = new List<Morador>();
         }
         public string GetEndereco(){
             return Endereco;
@@ -45,15 +46,15 @@ namespace ProjetoAluguel
         public void SetQuantidadeQuartos(int quantidadeQuartos){
             QuantidadeQuartos = quantidadeQuartos;
         }
-        /*public virtual double CalcularValorAluguel(){
+        public virtual double CalcularValorAluguel(){
             return 0;
         }
         public void AdicionarMorador(Morador morador){
             Moradores.Add(morador);
         }
         public void RemoverMorador(string cpf){
-            Moradores.RemoveAll(morador => morador.);
-        }*/
+            Moradores.RemoveAll(morador => morador.GetCPF() == cpf);
+        }
 
     }
 }

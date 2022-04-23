@@ -20,5 +20,9 @@ namespace ProjetoAluguel
         public void SetValorCondominio(double valorCondominio){
             ValorCondominio = valorCondominio;
         }
+        public double CalcularValorAluguel()
+        {
+            return (TamanhoMetros * 40) + (QuantidadeQuartos * 10) + (QuantidadeBanheiros * 5) + ValorCondominio;
+        }
     }
 }

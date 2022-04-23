@@ -12,5 +12,13 @@ namespace ProjetoAluguel
         public void SetComQuintal(bool comQuintal){
             ComQuintal = comQuintal;
         }
+        public override double CalcularValorAluguel()
+        {
+            double valorAluguel = (TamanhoMetros * 35) + (QuantidadeQuartos * 10) + (QuantidadeBanheiros * 5);
+            if(ComQuintal == true){
+                valorAluguel = valorAluguel*1.1;
+            }
+            return valorAluguel;
+        }
     }
 }
