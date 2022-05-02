@@ -30,7 +30,8 @@ public class MoradorTest
         Assert.Equal(nomeASetarEsperado, nomeATestar);
     }
     [Fact]
-    public void TesttandoSeGetCPFRetornaCorretamente(){
+    public void TesttandoSeGetCPFRetornaCorretamente()
+    {
         //Arrange
         var cpfEsperado = "11122233344";
         var moradorTest = new Morador("Jonatan", cpfEsperado, "02/05/2022");
@@ -40,7 +41,8 @@ public class MoradorTest
         Assert.Equal(cpfEsperado, cpfATestar);
     }
     [Fact]
-    public void TestandoSeSetCPFSetaCorretamente(){
+    public void TestandoSeSetCPFSetaCorretamente()
+    {
         //arrange
         var cpfASetarEsperado = "11122233344";
         var moradorTest = new Morador("Jonatan", "22233344455", "02/05/2022");
@@ -50,4 +52,38 @@ public class MoradorTest
         //assert
         Assert.Equal(cpfASetarEsperado, cpfATestar);
     }
+    [Fact]
+    public void TestandoSeMoradorNaoSalvaCPFComTamanhoDiferenteDeOnzeDigitos()
+    {
+        //arrange
+        var cpfIncorreto = "1112223334445";
+        var moradorTest = new Morador("Jonatan", cpfIncorreto, "02/05/2022");
+        //act
+        var cpfATestar = moradorTest.GetCPF();
+        //assert
+        Assert.Equal(null, cpfATestar);
+    }
+    [Fact]
+    public void TestandoSeMoradorNaoAceitaDataNascimentoFutura()
+    {
+        //Arrange
+        var dataNascimentoFutura = "02/05/2023";
+        var moradorTest = new Morador("Jonatan", "11122233344", dataNascimentoFutura);
+        //Act
+        var dataNascimentoATestar = moradorTest.GetDataNascimento();
+        //Assert
+        Assert.Equal(DateTime.MinValue, dataNascimentoATestar);
+    }
+    [Fact]
+    public void TestandoSeMoradorNaoAceitaDataNascimentoNulaOuVazia()
+    {
+        //Arrange
+        var dataNascimentoVazia = "";
+        var moradorTest = new Morador("Jonatan", "11122233344", dataNascimentoVazia);
+        //Act
+        var dataNascimentoATestar = moradorTest.GetDataNascimento();
+        //Assert
+        Assert.Equal(DateTime.MinValue, dataNascimentoATestar);
+    }
+    
 }
