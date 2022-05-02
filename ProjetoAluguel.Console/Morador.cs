@@ -5,6 +5,11 @@ namespace ProjetoAluguel
         private string Nome { get; set; }
         private string CPF { get; set; }
         private DateTime DataNascimento { get; set; }
+        public Morador(string nome, string cpf, string dataNascimento){
+            SetNome(nome);
+            SetCPF(cpf);
+            SetDataNascimento(dataNascimento);
+        }
         public string GetNome(){
             return Nome;
         }
@@ -20,8 +25,9 @@ namespace ProjetoAluguel
         public DateTime GetDataNascimento(){
             return DataNascimento;
         }
-        public void SetDataNascimento(DateTime dataNascimento){
-            DataNascimento = dataNascimento;
+        public void SetDataNascimento(string dataNascimento){
+            var dataDesejada = DateTime.Parse(dataNascimento);
+            DataNascimento = dataDesejada;
         }
     }
 }
